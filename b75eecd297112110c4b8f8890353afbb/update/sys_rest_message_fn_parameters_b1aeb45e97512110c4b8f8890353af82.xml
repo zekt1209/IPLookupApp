@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_rest_message_fn_parameters">
+    <sys_rest_message_fn_parameters action="INSERT_OR_UPDATE">
+        <name>specific_field</name>
+        <rest_message_function display_value="specificField">895eb05e97512110c4b8f8890353af73</rest_message_function>
+        <sys_class_name>sys_rest_message_fn_parameters</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-02 19:43:55</sys_created_on>
+        <sys_id>b1aeb45e97512110c4b8f8890353af82</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>specific_field</sys_name>
+        <sys_package display_value="IPLookup" source="x_877898_iplookup">b75eecd297112110c4b8f8890353afbb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="IPLookup">b75eecd297112110c4b8f8890353afbb</sys_scope>
+        <sys_update_name>sys_rest_message_fn_parameters_b1aeb45e97512110c4b8f8890353af82</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-02 19:44:29</sys_updated_on>
+        <type>string</type>
+        <value>city</value>
+    </sys_rest_message_fn_parameters>
+</record_update>

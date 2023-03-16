@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_877898_iplookup_ipaddressinfo</collection>
+        <condition/>
+        <description/>
+        <execute_function>false</execute_function>
+        <filter_condition/>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Populate IP Address City</name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/ ) {
+
+
+    try {
+        var r = new sn_ws.RESTMessageV2('x_877898_iplookup.IPInfo', 'specificField');
+        r.setStringParameterNoEscape('ipaddress', current.ip_address);
+        r.setStringParameterNoEscape('specific_field', 'city');
+
+        var response = r.execute();
+        var responseBody = response.getBody();
+        var httpStatus = response.getStatusCode();
+
+        gs.info("ResponseBody before parsing: " + responseBody);
+
+        //var responseObj = JSON.parse(responseBody);
+
+        //gs.info("ResponseBody after parsing: " + responseObj);
+
+        // Set the value of the city field on the IPAddressInfo record
+        current.city = responseBody;
+        //gs.info("City = " + responseObj.city + "IPAddress: " + current.ip_address);
+        current.update();
+    } catch (ex) {
+        gs.info("Uncaught error: " + ex);
+        var message = ex.message;
+		gs.info("Message: " + message);
+        //var message = ex.message;
+    }
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2023-03-07 03:41:14</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>79c11f2397512110c4b8f8890353af3e</sys_id>
+        <sys_mod_count>24</sys_mod_count>
+        <sys_name>Populate IP Address City</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="IPLookup" source="x_877898_iplookup">b75eecd297112110c4b8f8890353afbb</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="IPLookup">b75eecd297112110c4b8f8890353afbb</sys_scope>
+        <sys_update_name>sys_script_79c11f2397512110c4b8f8890353af3e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2023-03-15 23:53:51</sys_updated_on>
+        <template/>
+        <when>async_always</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=79c11f2397512110c4b8f8890353af3e"/>
+</record_update>
